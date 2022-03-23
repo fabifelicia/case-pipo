@@ -1,12 +1,12 @@
-import express, { json, urlencoded } from 'express';
+import express from 'express';
 import clientsRoutes from './routes/clients.route.js'
 
 
 const port = 3333
 const api = express()
 
-api.use(json())
-api.use(urlencoded())
+api.use(express.json())
+api.use(express.urlencoded())
 
 api.use(clientsRoutes)
 

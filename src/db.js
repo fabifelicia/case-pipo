@@ -1,4 +1,6 @@
-import { Pool } from 'pg'
+import pkg from 'pg'
+
+const { Pool } = pkg
 
 const connectionString = 'postgres://yhxsdbwp:zpM3E4MZroTKZvyIzPcWdfW5pMQtXpSp@tuffi.db.elephantsql.com/yhxsdbwp'
 

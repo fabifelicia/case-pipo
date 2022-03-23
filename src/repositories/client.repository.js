@@ -1,4 +1,4 @@
-import db from '../db';
+import db from '../db.js';
 
 class ClientRepository {
     async findAllClients() {
@@ -28,8 +28,8 @@ class ClientRepository {
 
     async create(client) {
         const script = `
-            INSERT INTO application_client (uuid, name)
-            VALUES($1, $2)
+            INSERT INTO application_client (name)
+            VALUES($1)
             RETURNING uuid                  
         `
         const values = [client.name]
@@ -44,7 +44,7 @@ class ClientRepository {
         const script = `
             UPDATE application_client
             SET
-                name = $1,            
+                name = $1            
             WHERE uuid = $2            
         `
         const values = [client.name, client.uuid]
