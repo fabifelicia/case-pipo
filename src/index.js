@@ -1,6 +1,7 @@
 import express, { json, urlencoded } from 'express';
 import clientsRoutes from './routes/clients.route.js'
 
+
 const port = 3333
 const api = express()
 

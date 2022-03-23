@@ -1,34 +1,41 @@
 import { Router } from 'express'
+import ClientRepository from '../repositories/client.repository'
 
 const clientsRoutes = Router()
 
 
-clientsRoutes.get('/clients', (req, res) => {
-    const clients = [{ name: 'Acme Co' }]
+clientsRoutes.get('/clients', async(req, res) => {
+    const clients = await ClientRepository.findAllClients()
     res.status(200).send({clients})
 })
 
-clientsRoutes.get('/clients/:uuid', (req, res) => {
+clientsRoutes.get('/clients/:uuid', async(req, res) => {
     const uuid = req.params.uuid
-    res.status(200).send(uuid)
+    const client = await ClientRepository.findClientById(uuid)
+    res.status(200).send(client)
 })
 
-clientsRoutes.post('/clients', (req, res) => {
+clientsRoutes.post('/clients', async (req, res) => {
     const newClient = req.body
-    res.status(200).send(newClient)
+
+    const uuid = await ClientRepository.create(newClient)
+    res.status(201).send(uuid)
 })
 
-clientsRoutes.put('/clients/:uuid', (req, res) => {
+clientsRoutes.put('/clients/:uuid', async (req, res) => {
     const uuid = req.params.uuid
     const modifiedClient = req.body
 
     modifiedClient.uuid = uuid
 
-    res.status(200).send(modifiedClient)
+    await ClientRepository.update(modifiedClient)
+
+    res.status(200).send({message: 'Cliente alterado com sucesso'})
 })
 
-clientsRoutes.delete('/clients/:uuid', (req, res) => {
+clientsRoutes.delete('/clients/:uuid', async(req, res) => {
     const uuid = req.params.uuid
+    await ClientRepository.remove(uuid)
     res.status(200).send({message:'Cliente deletado om sucesso'})
 })
 

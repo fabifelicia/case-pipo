@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS application_client(
     PRIMARY KEY (uuid),
 );
 
-INSERT INTO application_client (name) VALUES ("admin")
+INSERT INTO application_client (name) VALUES ('admin')
