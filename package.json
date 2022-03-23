@@ -1,0 +1,23 @@
+{
+  "name": "pipo-back",
+  "version": "1.0.0",
+  "description": "Desafio da Pipo Saúde - Backend",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Fabiana Barreto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
