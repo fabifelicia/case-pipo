@@ -2,8 +2,7 @@ import pkg from 'pg'
 
 const { Pool } = pkg
 
-const connectionString = 'postgres://yhxsdbwp:zpM3E4MZroTKZvyIzPcWdfW5pMQtXpSp@tuffi.db.elephantsql.com/yhxsdbwp'
-
+const connectionString = process.env.CONNECTION_API
 const db = new Pool({connectionString})
 
 export default db
