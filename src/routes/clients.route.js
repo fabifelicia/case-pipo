@@ -17,8 +17,8 @@ clientsRoutes.get('/clients/:uuid', async (req, res) => {
 clientsRoutes.post('/clients', async (req, res) => {
   const newClient = req.body
 
-  const uuid = await ClientRepository.create(newClient)
-  res.status(201).send(uuid)
+  const client = await ClientRepository.create(newClient)
+  res.status(201).send(client)
 })
 
 clientsRoutes.put('/clients/:uuid', async (req, res) => {
@@ -35,7 +35,7 @@ clientsRoutes.put('/clients/:uuid', async (req, res) => {
 clientsRoutes.delete('/clients/:uuid', async (req, res) => {
   const uuid = req.params.uuid
   await ClientRepository.remove(uuid)
-  res.status(200).send({ message: 'Cliente deletado om sucesso' })
+  res.status(200).send({ message: 'Cliente removido com sucesso' })
 })
 
 export default clientsRoutes

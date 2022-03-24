@@ -30,14 +30,14 @@ class ClientRepository {
         const script = `
             INSERT INTO application_client (name)
             VALUES($1)
-            RETURNING uuid                  
+            RETURNING uuid, name                  
         `
         const values = [client.name]
         const { rows } = await db.query(script, values);
         
         const [newClient] = rows
 
-        return newClient.uuid
+        return newClient
     }
 
     async update(client) {

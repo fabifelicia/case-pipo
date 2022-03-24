@@ -30,7 +30,7 @@ class PartnerRepository {
         const script = `
             INSERT INTO application_partner (name)
             VALUES($1)
-            RETURNING name, uuid                 
+            RETURNING uuid, name                 
         `
         const values = [partner.name]
         const { rows } = await db.query(script, values);
