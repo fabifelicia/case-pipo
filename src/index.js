@@ -4,7 +4,7 @@ import clientsRoutes from './routes/clients.route.js'
 import partnersRoutes from './routes/partners.route.js'
 
 
-const port = 3333
+const port = process.env.PORT
 const api = express()
 
 api.use(express.json())
