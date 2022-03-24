@@ -17,8 +17,8 @@ partnersRoutes.get('/partners/:uuid', async (req, res) => {
 partnersRoutes.post('/partners', async (req, res) => {
   const newPartner = req.body
 
-  const uuid = await PartnerRepository.create(newPartner)
-  res.status(201).send(uuid)
+  const partner = await PartnerRepository.create(newPartner)
+  res.status(201).send(partner)
 })
 
 partnersRoutes.put('/partners/:uuid', async (req, res) => {
@@ -35,7 +35,7 @@ partnersRoutes.put('/partners/:uuid', async (req, res) => {
 partnersRoutes.delete('/partners/:uuid', async (req, res) => {
   const uuid = req.params.uuid
   await PartnerRepository.remove(uuid)
-  res.status(200).send({ message: 'Parceiro deletado om sucesso' })
+  res.status(200).send({ message: 'Parceiro removido com sucesso' })
 })
 
 export default partnersRoutes
