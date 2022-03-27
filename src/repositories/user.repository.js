@@ -3,10 +3,9 @@ import db from '../db.js';
 class UserRepository {
     async findAllUsers() {
         const query = `
-            SELECT uuid, name
-            FROM users        
+            SELECT *
+            FROM users     
         `
-
         const { rows } = await db.query(query);
 
         return rows || []
@@ -14,7 +13,7 @@ class UserRepository {
 
     async findUserById(cpf) {
         const query = `
-            SELECT cpf, name
+            SELECT *
             FROM users
             WHERE cpf = $1        
         `
@@ -28,8 +27,8 @@ class UserRepository {
 
     async create(user) {
         const script = `
-            INSERT INTO users (name)
-            VALUES($1)
+            INSERT INTO users (cpf, name)
+            VALUES($1, $2)
             RETURNING cpf, name                  
         `
         const values = [user.name]

@@ -3,7 +3,7 @@ import db from '../db.js';
 class PartnerRepository {
     async findAllPartners() {
         const query = `
-            SELECT uuid, name
+            SELECT *
             FROM application_partner        
         `
 
@@ -14,7 +14,7 @@ class PartnerRepository {
 
     async findPartnerById(uuid) {
         const query = `
-            SELECT uuid, name
+            SELECT *
             FROM application_partner
             WHERE uuid = $1        
         `
@@ -30,7 +30,7 @@ class PartnerRepository {
         const script = `
             INSERT INTO application_partner (name)
             VALUES($1)
-            RETURNING uuid, name                 
+            RETURNING *                 
         `
         const values = [partner.name]
         const { rows } = await db.query(script, values);

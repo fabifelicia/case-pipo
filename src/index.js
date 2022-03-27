@@ -8,7 +8,6 @@ const port = process.env.PORT
 const api = express()
 
 api.use(express.json())
-api.use(express.urlencoded())
 
 api.use(clientsRoutes)
 api.use(partnersRoutes)

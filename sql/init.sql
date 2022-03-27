@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS users(
     name varchar(255),
     email varchar(255),
     endereco varchar(255),
-    admissao date,
+    admissao varchar(10),
     peso integer,
     altura integer,
     horas_meditacao integer,

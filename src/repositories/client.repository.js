@@ -3,7 +3,7 @@ import db from '../db.js';
 class ClientRepository {
     async findAllClients() {
         const query = `
-            SELECT uuid, name
+            SELECT *
             FROM application_client        
         `
 
@@ -14,7 +14,7 @@ class ClientRepository {
 
     async findClientById(uuid) {
         const query = `
-            SELECT uuid, name
+            SELECT *
             FROM application_client
             WHERE uuid = $1        
         `
@@ -30,7 +30,7 @@ class ClientRepository {
         const script = `
             INSERT INTO application_client (name)
             VALUES($1)
-            RETURNING uuid, name                  
+            RETURNING *                  
         `
         const values = [client.name]
         const { rows } = await db.query(script, values);
