@@ -14,15 +14,18 @@ CREATE TABLE IF NOT EXISTS application_partner(
 )
 
 CREATE TABLE IF NOT EXISTS users(
+    uuid uuid DEFAULT uuid_generate_v4(),
     cpf varchar(14) NOT NULL,
     name varchar(255),
     email varchar(255),
     endereco varchar(255),
-    admissao varchar(10),
-    peso integer,
-    altura integer,
+    data_admissao varchar(10),
+    peso float,
+    altura float,
     horas_meditacao float,
-    PRIMARY KEY (cpf)
+    uuid_plano uuid NOT NULL, 
+    PRIMARY KEY (uuid),
+    FOREIGN KEY (uuid_plano) REFERENCES application_partner(uuid)     
 )
 
 

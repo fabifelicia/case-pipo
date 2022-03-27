@@ -1,6 +1,8 @@
 import db from '../db.js';
+import { userController } from '../controller/user.controller.js'
 
 class UserRepository {
+    
     async findAllUsers() {
         const query = `
             SELECT *
@@ -26,12 +28,24 @@ class UserRepository {
     }
 
     async create(user) {
-        const script = `
-            INSERT INTO users (cpf, name)
-            VALUES($1, $2)
-            RETURNING cpf, name                  
-        `
-        const values = [user.name]
+        const script = await userController(user.uuid_plano)
+        let values = []
+        switch (user.uuid_plano) {
+            case '8d0e8424-78cb-49ae-af75-d32d2176f1f2' :  values = [user.cpf, user.name, user.admissao, user.email, user.uuid_plano]
+            break
+
+            case 'e706ead8-511a-433a-956e-222084f66f40' :  values = [user.cpf, user.name, user.admissao, user.endereco, user.uuid_plano]
+            break
+    
+            case '40245f1e-283c-49da-b404-abc71d2953a5' :  values = [user.cpf, user.name, user.peso, user.altura, user.uuid_plano]
+            break
+    
+            case '8bea65ed-6c6c-47c7-8447-72b3c669c2bd' :  values = [user.cpf, user.horas_meditacao, user.uuid_plano]
+            break
+
+            default : values = []
+        }        
+      
         const { rows } = await db.query(script, values);
         
         const [newUser] = rows
