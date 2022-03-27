@@ -1,6 +1,6 @@
 # Exercício Engenharia Pipo Saúde
 
-Projeto desenvolvido como desafio proposto pela [Pipo Saúde](https://www.piposaude.com.br/)
+Projeto desenvolvido como desafio proposto pela [Pipo Saúde](https://www.piposaude.com.br/). Criado a API da aplicação contendo a regra de negócios Node.js com Postgres
 
 
 ## Table of contents
@@ -25,6 +25,8 @@ Projeto desenvolvido como desafio proposto pela [Pipo Saúde](https://www.piposa
 ## Executando o Projeto
 Utilize o npm install para instalar as dependências do projeto. Em seguida, inicie o projeto.
 
+```
 expo start
+```
 
 Em seguida, defina no arquivo .env as configurações do seu projeto (string de conexão com banco de dados e porta utilizada)
