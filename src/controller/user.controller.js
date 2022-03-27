@@ -3,11 +3,11 @@
 export function userController (partner) {
     
     const query = {
-        '8d0e8424-78cb-49ae-af75-d32d2176f1f2' : `INSERT INTO users (cpf, name, admissão, email, uuid_plano)
+        '8d0e8424-78cb-49ae-af75-d32d2176f1f2' : `INSERT INTO users (cpf, name, data_admissao, email, uuid_plano)
         VALUES($1, $2, $3, $4, $5)
         RETURNING * `,
 
-        'e706ead8-511a-433a-956e-222084f66f40' : `INSERT INTO users (cpf, name, admissão, endereço, uuid_plano)
+        'e706ead8-511a-433a-956e-222084f66f40' : `INSERT INTO users (cpf, name, data_admissao, endereço, uuid_plano)
         VALUES($1, $2, $3, $4, $5)
         RETURNING * `,
 
