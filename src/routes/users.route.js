@@ -1,41 +1,41 @@
 import { Router } from 'express'
-import ClientRepository from '../repositories/client.repository.js'
+import UserRepository from '../repositories/client.repository.js'
 
-const clientsRoutes = Router()
+const usersRoutes = Router()
 
-clientsRoutes.get('/clients', async (req, res) => {
-  const clients = await ClientRepository.findAllClients()
-  res.status(200).send({ clients })
+usersRoutes.get('/users', async (req, res) => {
+  const users = await UserRepository.findAllUsers()
+  res.status(200).send({ users })
 })
 
-clientsRoutes.get('/clients/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
-  const client = await ClientRepository.findClientById(uuid)
-  res.status(200).send(client)
+usersRoutes.get('/users/:cpf', async (req, res) => {
+  const cpf = req.params.cpf
+  const user = await UserRepository.findUserById(cpf)
+  res.status(200).send(user)
 })
 
-clientsRoutes.post('/clients', async (req, res) => {
-  const newClient = req.body
+usersRoutes.post('/users', async (req, res) => {
+  const newUser = req.body
 
-  const client = await ClientRepository.create(newClient)
-  res.status(201).send(client)
+  const user = await UserRepository.create(newUser)
+  res.status(201).send(user)
 })
 
-clientsRoutes.put('/clients/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
-  const modifiedClient = req.body
+usersRoutes.put('/clients/:cpf', async (req, res) => {
+  const uuid = req.params.cpf
+  const modifiedUser = req.body
 
-  modifiedClient.uuid = uuid
+  modifiedUser.uuid = cpf
 
-  await ClientRepository.update(modifiedClient)
+  await UserRepository.update(modifiedUser)
 
-  res.status(200).send({ message: 'Cliente alterado com sucesso' })
+  res.status(200).send({ message: 'Usuário alterado com sucesso' })
 })
 
-clientsRoutes.delete('/clients/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
-  await ClientRepository.remove(uuid)
-  res.status(200).send({ message: 'Cliente removido com sucesso' })
+usersRoutes.delete('/clients/:cpf', async (req, res) => {
+  const cpf = req.params.cpf
+  await UserRepository.remove(cpf)
+  res.status(200).send({ message: 'Usuário removido com sucesso' })
 })
 
-export default clientsRoutes
+export default usersRoutes
