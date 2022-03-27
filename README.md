@@ -31,3 +31,5 @@ npm start
 ```
 
 Em seguida, defina no arquivo .env as configurações do seu projeto (string de conexão com banco de dados e porta utilizada)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/fabifelicia/case-pipo/badge)](https://www.codefactor.io/repository/github/fabifelicia/case-pipo)
