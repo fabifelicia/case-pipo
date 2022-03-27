@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS users(
     admissao varchar(10),
     peso integer,
     altura integer,
-    horas_meditacao integer,
+    horas_meditacao float,
     PRIMARY KEY (cpf)
 )
 
