@@ -26,7 +26,8 @@ Projeto desenvolvido como desafio proposto pela [Pipo Saúde](https://www.piposa
 Utilize o npm install para instalar as dependências do projeto. Em seguida, inicie o projeto.
 
 ```
-expo start
+npm start
+
 ```
 
 Em seguida, defina no arquivo .env as configurações do seu projeto (string de conexão com banco de dados e porta utilizada)
