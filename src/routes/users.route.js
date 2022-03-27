@@ -32,7 +32,7 @@ usersRoutes.put('/users/:uuid', async (req, res) => {
   res.status(200).send({ message: 'Usuário alterado com sucesso' })
 })
 
-usersRoutes.delete('/users/:cpf', async (req, res) => {
+usersRoutes.delete('/users/:uuid', async (req, res) => {
   const uuid = req.params.uuid
   await UserRepository.remove(uuid)
   res.status(200).send({ message: 'Usuário removido com sucesso' })
