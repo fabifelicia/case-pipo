@@ -23,13 +23,19 @@ Projeto desenvolvido como desafio proposto pela [Pipo Saúde](https://www.piposa
 
 
 ## Executando o Projeto
-Utilize o npm install para instalar as dependências do projeto. Em seguida, inicie o projeto.
+Utilize o npm install para instalar as dependências do projeto.
+
+ ```
+npm install
+
+```
+Em seguida, defina no arquivo .env, na raiz do seu projeto (string de conexão com banco de dados e porta utilizada)
+
+Logo apos essas configuraçoes, inicie o projeto.
 
 ```
 npm start
 
 ```
-
-Em seguida, defina no arquivo .env as configurações do seu projeto (string de conexão com banco de dados e porta utilizada)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/fabifelicia/case-pipo/badge)](https://www.codefactor.io/repository/github/fabifelicia/case-pipo)
