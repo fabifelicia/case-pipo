@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS clients(
 
 CREATE TABLE IF NOT EXISTS partners(
     partner_id SERIAL PRIMARY KEY,
-    name VARCHAR(255) UNIQUE NOT NULL,
+    name VARCHAR(255) NOT NULL,
     client_id INTEGER NOT NULL,  
     FOREIGN KEY (client_id) REFERENCES clients(client_id) ON DELETE CASCADE   
 )
