@@ -3,20 +3,20 @@
 export function userController (partner) {
     
     const query = {
-        '8d0e8424-78cb-49ae-af75-d32d2176f1f2' : `INSERT INTO users (cpf, name, data_admissao, email, uuid_plano)
+        1 : `INSERT INTO users (cpf, name, data_admissao, email, partner_id)
         VALUES($1, $2, $3, $4, $5)
         RETURNING * `,
 
-        'e706ead8-511a-433a-956e-222084f66f40' : `INSERT INTO users (cpf, name, data_admissao, endereco, uuid_plano)
+        2 : `INSERT INTO users (cpf, name, data_admissao, endereco, partner_id)
         VALUES($1, $2, $3, $4, $5)
         RETURNING * `,
 
  
-       '40245f1e-283c-49da-b404-abc71d2953a5' : `INSERT INTO users (cpf, name, peso, altura, uuid_plano)
+       3 : `INSERT INTO users (cpf, name, peso, altura, partner_id)
         VALUES($1, $2, $3, $4, $5)
         RETURNING * `,
 
-        '8bea65ed-6c6c-47c7-8447-72b3c669c2bd' : `INSERT INTO users (cpf, horas_meditacao, uuid_plano)
+        4 : `INSERT INTO users (cpf, horas_meditacao, partner_id)
         VALUES($1, $2, $3)
         RETURNING * `
     }
@@ -27,42 +27,38 @@ export function userController (partner) {
 export function updateUser (partner) {
     
     const query = {
-        '8d0e8424-78cb-49ae-af75-d32d2176f1f2' : `UPDATE users
-        SET
-            cpf = $1,
-            name = $2,
-            data_admissao = $3,
-            email = $4,
-            uuid_plano = $5           
-        WHERE uuid = $6           
+        1 : `UPDATE users
+        SET            
+            name = $1,
+            data_admissao = $2,
+            email = $3,
+            partner_id = $4           
+        WHERE cpf = $5           
     `,
 
-        'e706ead8-511a-433a-956e-222084f66f40' : `UPDATE users
-        SET
-            cpf = $1,
-            name = $2,
-            data_admissao = $3,
-            endereco = $4,
-            uuid_plano = $5           
-        WHERE uuid = $6           
+        2 : `UPDATE users
+        SET            
+            name = $1,
+            data_admissao = $2,
+            endereco = $3,
+            partner_id = $4           
+        WHERE cpf = $5           
     `,
  
-       '40245f1e-283c-49da-b404-abc71d2953a5' : `UPDATE users
+       3 : `UPDATE users
        SET
-           cpf = $1,
-           name = $2,
-           peso = $3,
-           altura = $4,
-           uuid_plano = $5           
-       WHERE uuid = $6           
+           name = $1,
+           peso = $2,
+           altura = $3,
+           partner_id = $4           
+       WHERE cpf = $5           
    `,
 
-        '8bea65ed-6c6c-47c7-8447-72b3c669c2bd' : `UPDATE users
-        SET
-            cpf = $1,
-            horas_meditacao = $2,            
-            uuid_plano = $3,           
-        WHERE uuid = $4           
+        4 : `UPDATE users
+        SET            
+            horas_meditacao = $1,            
+            partner_id = $2,           
+        WHERE cpf = $3           
     `,
     }
     return query[partner]

@@ -4,21 +4,20 @@ class PartnerRepository {
     async findAllPartners() {
         const query = `
             SELECT *
-            FROM application_partner        
+            FROM partners        
         `
-
         const { rows } = await db.query(query);
 
         return rows || []
     }
 
-    async findPartnerById(uuid) {
+    async findPartnerById(partner_id) {
         const query = `
             SELECT *
-            FROM application_partner
-            WHERE uuid = $1        
+            FROM partners
+            WHERE partner_id = $1        
         `
-        const values = [uuid]
+        const values = [partner_id]
         const { rows } = await db.query(query, values);
 
         const [partner] = rows
@@ -28,11 +27,11 @@ class PartnerRepository {
 
     async create(partner) {
         const script = `
-            INSERT INTO application_partner (name)
-            VALUES($1)
+            INSERT INTO partners (name, client_id)
+            VALUES($1, $2)
             RETURNING *                 
         `
-        const values = [partner.name]
+        const values = [partner.name, client_id]
         const { rows } = await db.query(script, values);
         
         const [newPartner] = rows
@@ -42,22 +41,22 @@ class PartnerRepository {
 
     async update(partner) {
         const script = `
-            UPDATE application_partner
+            UPDATE partners
             SET
                 name = $1            
-            WHERE uuid = $2            
+            WHERE partner_id = $2            
         `
-        const values = [partner.name, partner.uuid]
+        const values = [partner.name, partner.partner_id]
         await db.query(script, values)  
     }
 
-    async remove(uuid) {
+    async remove(partner_id) {
         const script = `
             DELETE 
-            FROM application_partner
-            WHERE uuid = $1
+            FROM partners
+            WHERE partner_id = $1
         `
-        const values = [uuid]
+        const values = [partner_id]
         await db.query(script, values) 
     }
 

@@ -8,10 +8,10 @@ clientsRoutes.get('/clients', async (req, res) => {
   res.status(200).send({ clients })
 })
 
-clientsRoutes.get('/clients/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
+clientsRoutes.get('/clients/:client_id', async (req, res) => {
+  const client_id = req.params.client_id
   try {
-    const client = await ClientRepository.findClientById(uuid)
+    const client = await ClientRepository.findClientById(client_id)
     res.status(200).send(client)
   } catch(error) {
     return res.status(404).json({ message: 'Cliente não encontrado'})
@@ -26,12 +26,12 @@ clientsRoutes.post('/clients', async (req, res) => {
   res.status(201).send(client)
 })
 
-clientsRoutes.put('/clients/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
+clientsRoutes.put('/clients/:client_id', async (req, res) => {
+  const client_id = req.params.client_id
   try {
     const modifiedClient = req.body
   
-    modifiedClient.uuid = uuid
+    modifiedClient.client_id = client_id
   
     await ClientRepository.update(modifiedClient)
   
@@ -42,10 +42,10 @@ clientsRoutes.put('/clients/:uuid', async (req, res) => {
   }
 })
 
-clientsRoutes.delete('/clients/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
+clientsRoutes.delete('/clients/:client_id', async (req, res) => {
+  const client_id = req.params.client_id
   try {
-    await ClientRepository.remove(uuid)
+    await ClientRepository.remove(client_id)
     res.status(200).send({ message: 'Cliente removido com sucesso' })    
   } catch (error) {
     return res.status(404).json({ message: 'Cliente não encontrado'})

@@ -4,7 +4,7 @@ class ClientRepository {
     async findAllClients() {
         const query = `
             SELECT *
-            FROM application_client        
+            FROM clients        
         `
 
         const { rows } = await db.query(query);
@@ -12,13 +12,13 @@ class ClientRepository {
         return rows || []
     }
 
-    async findClientById(uuid) {        
+    async findClientById(client_id) {        
             const query = `
                 SELECT *
-                FROM application_client
-                WHERE uuid = $1        
+                FROM clients
+                WHERE client_id = $1        
             `
-            const values = [uuid]
+            const values = [client_id]
             const { rows } = await db.query(query, values);
     
             const [client] = rows
@@ -28,7 +28,7 @@ class ClientRepository {
 
     async create(client) {
         const script = `
-            INSERT INTO application_client (name)
+            INSERT INTO clients (name)
             VALUES($1)
             RETURNING *                  
         `
@@ -42,22 +42,22 @@ class ClientRepository {
 
     async update(client) {
         const script = `
-            UPDATE application_client
+            UPDATE clients
             SET
                 name = $1            
-            WHERE uuid = $2            
+            WHERE client_id = $2            
         `
-        const values = [client.name, client.uuid]
+        const values = [client.name, client.client_id]
         await db.query(script, values)  
     }
 
-    async remove(uuid) {
+    async remove(client_id) {
         const script = `
             DELETE 
-            FROM application_client
-            WHERE uuid = $1
+            FROM clients
+            WHERE client_id = $1
         `
-        const values = [uuid]
+        const values = [client_id]
 
         await db.query(script, values) 
     }

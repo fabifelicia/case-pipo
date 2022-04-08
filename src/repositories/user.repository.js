@@ -28,19 +28,19 @@ class UserRepository {
     }
 
     async create(user) {
-        const script = await userController(user.uuid_plano)
+        const script = await userController(user.partner_id)
         let values = []
-        switch (user.uuid_plano) {
-            case '8d0e8424-78cb-49ae-af75-d32d2176f1f2' :  values = [user.cpf, user.name, user.data_admissao, user.email, user.uuid_plano]
+        switch (user.partner_id) {
+            case 1 :  values = [user.cpf, user.name, user.data_admissao, user.email, user.partner_id]
             break
 
-            case 'e706ead8-511a-433a-956e-222084f66f40' :  values = [user.cpf, user.name, user.data_admissao, user.endereco, user.uuid_plano]
+            case 2 :  values = [user.cpf, user.name, user.data_admissao, user.endereco, user.partner_id]
             break
     
-            case '40245f1e-283c-49da-b404-abc71d2953a5' :  values = [user.cpf, user.name, user.peso, user.altura, user.uuid_plano]
+            case 3 :  values = [user.cpf, user.name, user.peso, user.altura, user.partner_id]
             break
     
-            case '8bea65ed-6c6c-47c7-8447-72b3c669c2bd' :  values = [user.cpf, user.horas_meditacao, user.uuid_plano]
+            case 4 :  values = [user.cpf, user.horas_meditacao, user.partner_id]
             break
 
             default : values = []
@@ -54,19 +54,19 @@ class UserRepository {
     }
 
     async update(user) {
-        const script = await updateUser(user.uuid_plano)
+        const script = await updateUser(user.partner_id)
         let values = []
-        switch (user.uuid_plano) {
-            case '8d0e8424-78cb-49ae-af75-d32d2176f1f2' :  values = [user.cpf, user.name, user.data_admissao, user.email, user.uuid_plano, user.uuid]
+        switch (user.partner_id) {
+            case 1 :  values = [user.name, user.data_admissao, user.email, user.partner_id, user.cpf]
             break
 
-            case 'e706ead8-511a-433a-956e-222084f66f40' :  values = [user.cpf, user.name, user.data_admissao, user.endereco, user.uuid_plano, user.uuid]
+            case 1 :  values = [user.name, user.data_admissao, user.endereco, user.partner_id, user.cpf]
             break
     
-            case '40245f1e-283c-49da-b404-abc71d2953a5' :  values = [user.cpf, user.name, user.peso, user.altura, user.uuid_plano, user.uuid]
+            case 3 :  values = [user.name, user.peso, user.altura, user.partner_id, user.cpf]
             break
     
-            case '8bea65ed-6c6c-47c7-8447-72b3c669c2bd' :  values = [user.cpf, user.horas_meditacao, user.uuid_plano, user.uuid]
+            case 4 :  values = [user.horas_meditacao, user.partner_id, user.cpf]
             break
 
             default : values = []
@@ -74,13 +74,13 @@ class UserRepository {
         await db.query(script, values)  
     }
 
-    async remove(uuid) {
+    async remove(cpf) {
         const script = `
             DELETE 
             FROM users
-            WHERE uuid = $1
+            WHERE cpf = $1
         `
-        const values = [uuid]
+        const values = [cpf]
 
         await db.query(script, values) 
     }

@@ -8,10 +8,10 @@ partnersRoutes.get('/partners', async (req, res) => {
   res.status(200).send({ partners })
 })
 
-partnersRoutes.get('/partners/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
+partnersRoutes.get('/partners/:partner_id', async (req, res) => {
+  const partner_id = req.params.partner_id
   try {
-    const partner = await PartnerRepository.findPartnerById(uuid)    
+    const partner = await PartnerRepository.findPartnerById(partner_id)    
     res.status(200).send(partner)
   } catch (error) {
     res.status(404).json({message: 'Parceiro não encontrado'})
@@ -25,13 +25,13 @@ partnersRoutes.post('/partners', async (req, res) => {
   res.status(201).send(partner)
 })
 
-partnersRoutes.put('/partners/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
+partnersRoutes.put('/partners/:partner_id', async (req, res) => {
+  const partner_id = req.params.partner_id
 
   try {
     const modifiedPartner = req.body
   
-    modifiedPartner.uuid = uuid
+    modifiedPartner.partner_id = partner_id
   
     await PartnerRepository.update(modifiedPartner)
   
@@ -42,10 +42,10 @@ partnersRoutes.put('/partners/:uuid', async (req, res) => {
   }
 })
 
-partnersRoutes.delete('/partners/:uuid', async (req, res) => {
-  const uuid = req.params.uuid
+partnersRoutes.delete('/partners/:partner_id', async (req, res) => {
+  const partner_id = req.params.partner_id
   try {
-    await PartnerRepository.remove(uuid)
+    await PartnerRepository.remove(partner_id)
     res.status(200).send({ message: 'Parceiro removido com sucesso' })     
   } catch (error) {
     res.status(404).json({message: 'Parceiro não encontrado'})
