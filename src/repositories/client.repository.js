@@ -22,7 +22,7 @@ class ClientRepository {
             const { rows } = await db.query(query, values);
     
             const [client] = rows
-            return client        
+            return client || null      
 
     }
 
