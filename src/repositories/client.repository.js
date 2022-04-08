@@ -12,18 +12,18 @@ class ClientRepository {
         return rows || []
     }
 
-    async findClientById(uuid) {
-        const query = `
-            SELECT *
-            FROM application_client
-            WHERE uuid = $1        
-        `
-        const values = [uuid]
-        const { rows } = await db.query(query, values);
+    async findClientById(uuid) {        
+            const query = `
+                SELECT *
+                FROM application_client
+                WHERE uuid = $1        
+            `
+            const values = [uuid]
+            const { rows } = await db.query(query, values);
+    
+            const [client] = rows
+            return client        
 
-        const [client] = rows
-
-        return client
     }
 
     async create(client) {
