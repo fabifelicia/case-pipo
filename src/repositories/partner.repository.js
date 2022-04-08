@@ -58,7 +58,6 @@ class PartnerRepository {
             WHERE uuid = $1
         `
         const values = [uuid]
-
         await db.query(script, values) 
     }
 

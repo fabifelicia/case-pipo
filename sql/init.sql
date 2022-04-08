@@ -23,8 +23,7 @@ CREATE TABLE IF NOT EXISTS users(
     altura float,
     horas_meditacao float,
     uuid_plano uuid NOT NULL, 
-    PRIMARY KEY (uuid),
-    FOREIGN KEY (uuid_plano) REFERENCES application_partner(uuid)     
+    PRIMARY KEY (uuid)        
 )
 
 
