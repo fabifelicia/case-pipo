@@ -2,10 +2,10 @@
   <img src='./src/assets/Logo – Pipo Saúde.svg'/> 
 </p>
 
-<p align='center'>
+<h1 align='center'>
 
-   # Engenharia Pipo Saúde - Challenge
-</p>
+   Engenharia Pipo Saúde - Challenge
+</h1>
 
 <p align='center'>
 
