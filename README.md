@@ -63,14 +63,14 @@
 
 ### Relacionados aos beneficiários
 
-:heavy_check_mark: Incluir baneficiarios a determinado parceiro - O sistema precisa estar apto para cadastrar os funcionarios do cliente aos seus parceiros ofertados. Para cada parceiros, é exigido determinados dados: 
+:heavy_check_mark: Incluir beneficiarios a determinado parceiro - O sistema precisa estar apto para cadastrar os funcionarios do cliente aos seus parceiros ofertados. Para cada parceiro, é exigido determinados dados: 
 
 1. Plano de Saúde Norte Europa: cpf, nome, data de admissão e email.
 2.  Plano de Saúde Pampulha Intermédica: cpf, nome, data de admissão e endereço.
 3. Plano Odontológico Dental Sorriso: cpf, nome, peso e altura.
 4. Plano de Saúde Mental Mente Sã, Corpo São: cpf e horas meditadas no últimos 7 dias
 
-Para todos os beneficiários, é obrigatório também informar o nome do parceiro e o id do parceiro
+Para todos os beneficiários é obrigatório também informar o nome do parceiro e o id do parceiro
 
 :heavy_check_mark: Listar beneficiários cadastrados
 
@@ -171,7 +171,7 @@ Após criação, abre-se a instância, copia a url disponibilizada e cola no pro
 
 No menu lateral, escolhe a opção Browser, que abre uma caixa de texto para inserir as queries. Nesse momento, deve-se criar as tabelas que estão no arquivo sql/init.sql, para que a aplicação funcione.
 
-Em seguida, defina no arquivo .env, na raiz do seu projeto e insira as varíaveis de ambiente PORT=(porta que rodará a aplicação) e a CONNECTION_API=(string de conexão com banco de dados, copiada anteriormente)
+Em seguida, crie um arquivo .env, na raiz do seu projeto e insira as varíaveis de ambiente PORT=(porta que rodará a aplicação) e a CONNECTION_API=(string de conexão com banco de dados, copiada anteriormente)
 
 Logo apos essas configuraçoes, inicie o projeto.
 
@@ -181,7 +181,7 @@ npm start
 ```
 ## Desenvolvedores/Contribuintes :octocat:
 
-| [<img src="https://avatars.githubusercontent.com/u/39680930?v=4" width=115><br><sub>Fabiana Barreto</sub>](https://github.com/fabifelicia) |
+[<img src="https://avatars.githubusercontent.com/u/39680930?v=4" width=115><br><sub>Fabiana Barreto</sub>](https://github.com/fabifelicia) |
 
 Copyright :copyright: 2022 - Engenharia Pipo Saúde
 
