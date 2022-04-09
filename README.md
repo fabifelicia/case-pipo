@@ -8,9 +8,12 @@
 </h1>
 
 <p align='center'>
-  <img src='![npm](https://img.shields.io/npm/v/npm?color=green)'/>
-  <img src="![node](https://img.shields.io/badge/node-v.16.14.2-green)"/>
-  <img src="http://img.shields.io/badge/status-concluido-green"/>
+  <img src='https://img.shields.io/npm/v/npm?color=green'/>
+  <img src="https://img.shields.io/badge/node-v16.14.2-green"/>
+  <img src="https://img.shields.io/badge/express-v4.17.3-green"/>
+  <img src="https://img.shields.io/badge/pg-v8.7.3-yellow"/>
+  <img src="https://img.shields.io/badge/dotenv-v16.0.0-yellow"/>
+  <img src="https://img.shields.io/badge/status-concluido-green"/>
 </p>
 
 > Status do Projeto: :heavy_check_mark: (concluído - aberto a melhorias)
