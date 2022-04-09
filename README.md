@@ -39,7 +39,7 @@
 
 ## Funcionalidades
 ### Relacionados aos clientes
-:heavy_check_mark: Incluir clientes
+:heavy_check_mark: Cadastro de clientes - O sistema precisa estar apto para cadastrar os clientes da empresa. Para cadastrar um cliente, debve ser informado o nome do mesmo. 
 
 :heavy_check_mark: Listar clientes cadastrados
 
@@ -51,7 +51,7 @@
 
 ### Relacionados aos parceiros
 
-:heavy_check_mark: Incluir parceiros a determinado cliente
+:heavy_check_mark: Cadastro de parceiros a determinado cliente - O sistema precisa estar apto para cadastrar os parceiros que cada cliente oferece. Para cadastrar um parceiro, deve ser informado o nome do parceiro e o id do cliente ao qual está inserido. 
 
 :heavy_check_mark: Listar parceiros cadastrados
 
@@ -63,7 +63,14 @@
 
 ### Relacionados aos beneficiários
 
-:heavy_check_mark: Incluir baneficiarios a determinado parceiro
+:heavy_check_mark: Incluir baneficiarios a determinado parceiro - O sistema precisa estar apto para cadastrar os funcionarios do cliente aos seus parceiros ofertados. Para cada parceiros, é exigido determinados dados: 
+
+1. Plano de Saúde Norte Europa: cpf, nome, data de admissão e email.
+2.  Plano de Saúde Pampulha Intermédica: cpf, nome, data de admissão e endereço.
+3. Plano Odontológico Dental Sorriso: cpf, nome, peso e altura.
+4. Plano de Saúde Mental Mente Sã, Corpo São: cpf e horas meditadas no últimos 7 dias
+
+Para todos os beneficiários, é obrigatório também informar o nome do parceiro e o id do parceiro
 
 :heavy_check_mark: Listar beneficiários cadastrados
 
@@ -131,33 +138,40 @@ Response
 
 ## Tecnologias Utilizadas
 
-:small_blue_circle: [Node](https://nodejs.org/en/download/)
+:heavy_check_mark: [Node](https://nodejs.org/en/download/)
 
-:small_blue_circle: [Express](https://www.npmjs.com/package/express)
+:heavy_check_mark: [Express](https://www.npmjs.com/package/express)
 
-:small_blue_circle: [Postgres](https://node-postgres.com/)
+:heavy_check_mark: [Postgres](https://node-postgres.com/)
 
-:small_blue_circle: [ElephantSQL](https://www.elephantsql.com/)
+:heavy_check_mark: [ElephantSQL](https://www.elephantsql.com/)
 
-:small_blue_circle: [dotenv](https://www.npmjs.com/package/dotenv)
+:heavy_check_mark: [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## Como rodar a aplicação :arrow_forward:
 
 No terminal, clone o projeto: 
 
 ```
-git clone https://github.com/
+git clone https://github.com/fabifelicia/case-pipo.git
 ```
-
-... 
 
 Utilize o npm install para instalar as dependências do projeto.
 
- ```
-npm install
-
 ```
-Em seguida, defina no arquivo .env, na raiz do seu projeto (string de conexão com banco de dados e porta utilizada)
+npm install
+```
+### Iniciando/Configurando o banco de dados
+
+Para o banco de dados utilizei o ElephantSQL, um serviço de hospedagem de banco de dados PostgreSQL gratuito, que permite armazenar dados de forma estruturada  que podem ser facilmente acessados, gerenciados e atualizados.
+
+Para isso, basta fazer o login na plataforma e criar uma nova instância. Após essa etapa, nomeia o projeto e escolhe o plano grátis (Tiny Turtle). Seleciona a região, que já vem configurada por default e clica em criar instância.
+
+Após criação, abre-se a instância, copia a url disponibilizada e cola no projeto (arquivo .env)
+
+No menu lateral, escolhe a opção Browser, que abre uma caixa de texto para inserir as queries. Nesse momento, deve-se criar as tabelas que estão no arquivo sql/init.sql, para que a aplicação funcione.
+
+Em seguida, defina no arquivo .env, na raiz do seu projeto e insira as varíaveis de ambiente PORT=(porta que rodará a aplicação) e a CONNECTION_API=(string de conexão com banco de dados, copiada anteriormente)
 
 Logo apos essas configuraçoes, inicie o projeto.
 
@@ -165,7 +179,6 @@ Logo apos essas configuraçoes, inicie o projeto.
 npm start
 
 ```
-
 ## Desenvolvedores/Contribuintes :octocat:
 
 | [<img src="https://avatars.githubusercontent.com/u/39680930?v=4" width=115><br><sub>Fabiana Barreto</sub>](https://github.com/fabifelicia) |
