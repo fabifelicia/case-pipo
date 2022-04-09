@@ -1,10 +1,15 @@
-p<p align='center>
-  <img src='./src/assets/Logo – Pipo Saúde.svg'/> 
+<p align='center'>
+  <img src='./src/assets/Logo – Pipo Saúde.svg'/>
+  
   # Engenharia Pipo Saúde - Challenge 
 </p>
 
+<p align='center'>
+  <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
+</p>
+
 > Status do Projeto: :heavy_check_mark: (concluído - aberto a melhorias)
-## Table of contents
+## Tópicos
 
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
 
@@ -76,7 +81,7 @@ npm start
 
 ## Desenvolvedores/Contribuintes :octocat:
 
-| [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/fabifelicia) |
+| [<img src="https://avatars.githubusercontent.com/u/39680930?v=4" width=115><br><sub>Fabiana Barreto</sub>](https://github.com/fabifelicia) |
 
 Copyright :copyright: 2022 - Engenharia Pipo Saúde
 
