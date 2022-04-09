@@ -1,10 +1,11 @@
 <p align='center'>
-  <img src='./src/assets/Logo – Pipo Saúde.svg'/>   
+  <img src='./src/assets/Logo – Pipo Saúde.svg'/>
+    
+  # Engenharia Pipo Saúde - Challenge
 </p>
 
 <p align='center'>
-  # Engenharia Pipo Saúde - Challenge
-  
+
   <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
 </p>
 
