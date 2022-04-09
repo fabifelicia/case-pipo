@@ -23,6 +23,8 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
+:small_blue_diamond: [Rotas da Requisição](#rotas-da-requisição)
+
 :small_blue_diamond: [Pré-requisitos](#pré-requisitos)
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
@@ -36,24 +38,96 @@
 </p>
 
 ## Funcionalidades
+### Relacionados aos clientes
+:heavy_check_mark: Incluir clientes
 
-:heavy_check_mark: Incluir clientes  
 :heavy_check_mark: Listar clientes cadastrados
+
 :heavy_check_mark: Buscar cliente específico
+
 :heavy_check_mark: Alterar dados de um cliente
+
 :heavy_check_mark: Deletar determinado cliente
 
-:heavy_check_mark: Incluir parceiros a determinado cliente  
-:heavy_check_mark: Listar parceiros cadastrados
-:heavy_check_mark: Buscar determinado parceiros 
-:heavy_check_mark: Alterar dados de um parceiro 
-:heavy_check_mark: Deletar determinado parceiro de um cliente 
+### Relacionados aos parceiros
 
-:heavy_check_mark: Incluir baneficiarios a determinado parceiro  
+:heavy_check_mark: Incluir parceiros a determinado cliente
+
+:heavy_check_mark: Listar parceiros cadastrados
+
+:heavy_check_mark: Buscar determinado parceiros
+
+:heavy_check_mark: Alterar dados de um parceiro
+
+:heavy_check_mark: Deletar determinado parceiro de um cliente
+
+### Relacionados aos beneficiários
+
+:heavy_check_mark: Incluir baneficiarios a determinado parceiro
+
 :heavy_check_mark: Listar beneficiários cadastrados
-:heavy_check_mark: Buscar beneficiário 
-:heavy_check_mark: Alterar dados de um beneficiário 
+
+:heavy_check_mark: Buscar beneficiário
+
+:heavy_check_mark: Alterar dados de um beneficiário
+
 :heavy_check_mark: Deletar determinado beneficiário 
+
+
+## Rotas da Requisição
+
+### Adicionar clientes/parceiros/beneficiarios
+
+`POST /clients`
+
+`POST /partners`
+
+`POST /users`
+
+Response
+`CREATED 201`
+
+### Listar clientes/parceiros/beneficiarios
+
+`GET /clients`
+
+`GET /partners`
+
+`GET /users`
+
+Response
+`OK 200`
+### Buscar cliente/parceiro/beneficiario
+
+`GET /clients/:id_client`
+
+`GET /partners/:id_partner`
+
+`GET /users/:id_user`
+
+Response
+`OK 200`
+
+### Editar dados dos clientes/parceiros/beneficiarios
+
+`PUT /clients/:id_client`
+
+`PUT /partners/:id_partner`
+
+`PUT /users/:id_user`
+
+Response
+`OK 200`
+### Deletar clientes/parceiros/beneficiarios
+
+`DLETE /clients/:id_client`
+
+`DELETE /partners/:id_partner`
+
+`DELETE /users/:id_user`
+
+Response
+`OK 200`
 
 ## Pré-requisitos
 
