@@ -23,8 +23,6 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
-
 :small_blue_diamond: [Pré-requisitos](#pré-requisitos)
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
@@ -39,21 +37,23 @@
 
 ## Funcionalidades
 
-:heavy_check_mark: Funcionalidade 1  
+:heavy_check_mark: Incluir clientes  
+:heavy_check_mark: Listar clientes cadastrados
+:heavy_check_mark: Buscar cliente específico
+:heavy_check_mark: Alterar dados de um cliente
+:heavy_check_mark: Deletar determinado cliente
 
-:heavy_check_mark: Funcionalidade 2  
+:heavy_check_mark: Incluir parceiros a determinado cliente  
+:heavy_check_mark: Listar parceiros cadastrados
+:heavy_check_mark: Buscar determinado parceiros 
+:heavy_check_mark: Alterar dados de um parceiro 
+:heavy_check_mark: Deletar determinado parceiro de um cliente 
 
-:heavy_check_mark: Funcionalidade 3  
-
-:heavy_check_mark: Funcionalidade 4  
-
-## Layout ou Deploy da Aplicação :dash:
-
-> Link do deploy da aplicação. Exemplo com netlify: https://certificates-for-everyone-womakerscode.netlify.app/
-
-... 
-
-Se ainda não houver deploy, insira capturas de tela da aplicação ou gifs
+:heavy_check_mark: Incluir baneficiarios a determinado parceiro  
+:heavy_check_mark: Listar beneficiários cadastrados
+:heavy_check_mark: Buscar beneficiário 
+:heavy_check_mark: Alterar dados de um beneficiário 
+:heavy_check_mark: Deletar determinado beneficiário 
 
 ## Pré-requisitos
 
