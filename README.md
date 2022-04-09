@@ -25,7 +25,7 @@
 
 :small_blue_diamond: [Rotas da Requisição](#rotas-da-requisição)
 
-:small_blue_diamond: [Pré-requisitos](#pré-requisitos)
+:small_blue_diamond: [Tecnologias Utilizadas](#tecnologias-utilizadas)
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
 
@@ -129,13 +129,17 @@ Response
 Response
 `OK 200`
 
-## Pré-requisitos
+## Tecnologias Utilizadas
 
-:warning: [Node](https://nodejs.org/en/download/)
+:small_blue_circle: [Node](https://nodejs.org/en/download/)
 
-...
+:small_blue_circle: [Express](https://www.npmjs.com/package/express)
 
-Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação 
+:small_blue_circle: [Postgres](https://node-postgres.com/)
+
+:small_blue_circle: [ElephantSQL](https://www.elephantsql.com/)
+
+:small_blue_circle: [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## Como rodar a aplicação :arrow_forward:
 
