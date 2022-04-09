@@ -33,7 +33,7 @@ class UserRepository {
       case "Plano de Saúde Norte Europa":
         values = [
           user.cpf,
-          user.name,          
+          user.name,
           user.email,
           user.data_admissao,
           user.partner_id,
@@ -44,7 +44,7 @@ class UserRepository {
       case "Plano de Saúde Pampulha Intermédica":
         values = [
           user.cpf,
-          user.name,          
+          user.name,
           user.endereco,
           user.data_admissao,
           user.partner_id,
@@ -89,43 +89,47 @@ class UserRepository {
     switch (user.name_partner) {
       case "Plano de Saúde Norte Europa":
         values = [
-            user.cpf,
-            user.name,
-            user.email,
-            user.data_admissao,            
-            user.partner_id,
-            user.name_partner,
+          user.cpf,
+          user.name,
+          user.email,
+          user.data_admissao,
+          user.partner_id,
+          user.name_partner,
+          user.user_id,
         ];
         break;
 
       case "Plano de Saúde Pampulha Intermédica":
         values = [
-            user.cpf,
-            user.name,
-            user.endereco,
-            user.data_admissao,
-            user.partner_id,
-            user.name_partner,
+          user.cpf,
+          user.name,
+          user.endereco,
+          user.data_admissao,
+          user.partner_id,
+          user.name_partner,
+          user.user_id,
         ];
         break;
 
       case "Plano Odontológico Dental Sorriso":
         values = [
-            user.cpf,
-            user.name,
-            user.peso,
-            user.altura,
-            user.partner_id,
-            user.name_partner,
-            ];
+          user.cpf,
+          user.name,
+          user.peso,
+          user.altura,
+          user.partner_id,
+          user.name_partner,
+          user.user_id,
+        ];
         break;
 
       case "Plano de Saúde Mental Mente Sã, Corpo São":
         values = [
-            user.cpf,
-            user.horas_meditacao,
-            user.partner_id,
-            user.name_partner,
+          user.cpf,
+          user.horas_meditacao,
+          user.partner_id,
+          user.name_partner,
+          user.user_id,
         ];
         break;
 
