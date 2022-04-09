@@ -1,7 +1,10 @@
 <p align='center'>
-  <img src='./src/assets/Logo – Pipo Saúde.svg'/>
-    
-  # Engenharia Pipo Saúde - Challenge
+  <img src='./src/assets/Logo – Pipo Saúde.svg'/> 
+</p>
+
+<p align='center'>
+
+   # Engenharia Pipo Saúde - Challenge
 </p>
 
 <p align='center'>
