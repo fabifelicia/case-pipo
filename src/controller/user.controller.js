@@ -1,65 +1,67 @@
-
-
-export function userController (partner) {
-    
-    const query = {
-        1 : `INSERT INTO users (cpf, name, data_admissao, email, partner_id)
-        VALUES($1, $2, $3, $4, $5)
+export function userController(partner) {
+  const query = {
+    "Plano de Saúde Norte Europa": `INSERT INTO users (cpf, name, email, data_admissao, partner_id, name_partner)
+        VALUES($1, $2, $3, $4, $5, $6)
         RETURNING * `,
 
-        2 : `INSERT INTO users (cpf, name, data_admissao, endereco, partner_id)
-        VALUES($1, $2, $3, $4, $5)
+    "Plano de Saúde Pampulha Intermédica": `INSERT INTO users (cpf, name, endereco, data_admissao, partner_id, name_partner)
+        VALUES($1, $2, $3, $4, $5, $6)
         RETURNING * `,
 
- 
-       3 : `INSERT INTO users (cpf, name, peso, altura, partner_id)
-        VALUES($1, $2, $3, $4, $5)
+    "Plano Odontológico Dental Sorriso": `INSERT INTO users (cpf, name, peso, altura, partner_id, name_partner)
+        VALUES($1, $2, $3, $4, $5, $6)
         RETURNING * `,
 
-        4 : `INSERT INTO users (cpf, horas_meditacao, partner_id)
-        VALUES($1, $2, $3)
-        RETURNING * `
-    }
-    return query[partner]
+    "Plano de Saúde Mental Mente Sã, Corpo São": `INSERT INTO users (cpf, horas_meditacao, partner_id, name_partner)
+        VALUES($1, $2, $3, $4)
+        RETURNING * `,
+  };
+  return query[partner];
 }
 
-
-export function updateUser (partner) {
-    
-    const query = {
-        1 : `UPDATE users
-        SET            
-            name = $1,
-            data_admissao = $2,
+export function updateUser(partner) {
+  const query = {
+    "Plano de Saúde Norte Europa": `UPDATE users
+        SET 
+            cpf = $1,          
+            name = $2,
             email = $3,
-            partner_id = $4           
-        WHERE cpf = $5           
+            data_admissao = $4,
+            partner_id = $5,
+            name_partner = $6           
+        WHERE user_id = $7           
     `,
 
-        2 : `UPDATE users
-        SET            
-            name = $1,
-            data_admissao = $2,
+    "Plano de Saúde Pampulha Intermédica": `UPDATE users
+        SET
+            cpf = $1,            
+            name = $2,
             endereco = $3,
-            partner_id = $4           
-        WHERE cpf = $5           
+            data_admissao = $4,
+            partner_id = $5,
+            name_partner = $6           
+        WHERE user_id = $7           
     `,
- 
-       3 : `UPDATE users
-       SET
-           name = $1,
-           peso = $2,
-           altura = $3,
-           partner_id = $4           
-       WHERE cpf = $5           
+
+    "Plano Odontológico Dental Sorriso": `UPDATE users
+        SET
+            cpf = $1,
+            name = $2,
+            peso = $3,
+            altura = $4,
+            partner_id = $5,
+            name_partner = $6          
+        WHERE user_id = $7           
    `,
 
-        4 : `UPDATE users
-        SET            
-            horas_meditacao = $1,            
-            partner_id = $2,           
-        WHERE cpf = $3           
+    "Plano de Saúde Mental Mente Sã, Corpo São": `UPDATE users
+        SET 
+            cpf = $1,           
+            horas_meditacao = $2,
+            partner_id = $3,            
+            name_partner = $4,           
+        WHERE user_id = $5           
     `,
-    }
-    return query[partner]
+  };
+  return query[partner];
 }

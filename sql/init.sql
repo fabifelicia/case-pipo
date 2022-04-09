@@ -10,8 +10,9 @@ CREATE TABLE IF NOT EXISTS partners(
     FOREIGN KEY (client_id) REFERENCES clients(client_id) ON DELETE CASCADE   
 )
 
-CREATE TABLE IF NOT EXISTS users(    
-    cpf INTEGER UNIQUE NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS users(
+    user_id SERIAL PRIMARY KEY,    
+    cpf VARCHAR(14) NOT NULL,
     name VARCHAR(255),
     email VARCHAR(255),
     endereco VARCHAR(255),
@@ -19,7 +20,8 @@ CREATE TABLE IF NOT EXISTS users(
     peso float,
     altura float,
     horas_meditacao float,
-    partner_id INTEGER NOT NULL, 
+    partner_id INTEGER NOT NULL,
+    name_partner VARCHAR(255) NOT NULL, 
     FOREIGN KEY (partner_id) REFERENCES partners(partner_id) ON DELETE CASCADE          
 )
 

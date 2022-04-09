@@ -1,90 +1,150 @@
-import db from '../db.js';
-import { userController, updateUser } from '../controller/user.controller.js'
+import db from "../db.js";
+import { userController, updateUser } from "../controller/user.controller.js";
 
 class UserRepository {
-    
-    async findAllUsers() {
-        const query = `
+  async findAllUsers() {
+    const query = `
             SELECT *
             FROM users     
-        `
-        const { rows } = await db.query(query);
+        `;
+    const { rows } = await db.query(query);
 
-        return rows || []
-    }
+    return rows || [];
+  }
 
-    async findUserById(cpf) {
-        const query = `
+  async findUserById(user_id) {
+    const query = `
             SELECT *
             FROM users
-            WHERE cpf = $1        
-        `
-        const values = [cpf]
-        const { rows } = await db.query(query, values);
+            WHERE user_id = $1        
+        `;
+    const values = [user_id];
+    const { rows } = await db.query(query, values);
 
-        const [user] = rows
+    const [user] = rows;
 
-        return user
+    return user;
+  }
+
+  async create(user) {
+    const script = await userController(user.name_partner);
+    let values = [];
+    switch (user.name_partner) {
+      case "Plano de Saúde Norte Europa":
+        values = [
+          user.cpf,
+          user.name,          
+          user.email,
+          user.data_admissao,
+          user.partner_id,
+          user.name_partner,
+        ];
+        break;
+
+      case "Plano de Saúde Pampulha Intermédica":
+        values = [
+          user.cpf,
+          user.name,          
+          user.endereco,
+          user.data_admissao,
+          user.partner_id,
+          user.name_partner,
+        ];
+        break;
+
+      case "Plano Odontológico Dental Sorriso":
+        values = [
+          user.cpf,
+          user.name,
+          user.peso,
+          user.altura,
+          user.partner_id,
+          user.name_partner,
+        ];
+        break;
+
+      case "Plano de Saúde Mental Mente Sã, Corpo São":
+        values = [
+          user.cpf,
+          user.horas_meditacao,
+          user.partner_id,
+          user.name_partner,
+        ];
+        break;
+
+      default:
+        values = [];
     }
 
-    async create(user) {
-        const script = await userController(user.partner_id)
-        let values = []
-        switch (user.partner_id) {
-            case 1 :  values = [user.cpf, user.name, user.data_admissao, user.email, user.partner_id]
-            break
+    const { rows } = await db.query(script, values);
 
-            case 2 :  values = [user.cpf, user.name, user.data_admissao, user.endereco, user.partner_id]
-            break
-    
-            case 3 :  values = [user.cpf, user.name, user.peso, user.altura, user.partner_id]
-            break
-    
-            case 4 :  values = [user.cpf, user.horas_meditacao, user.partner_id]
-            break
+    const [newUser] = rows;
 
-            default : values = []
-        }        
-      
-        const { rows } = await db.query(script, values);
-        
-        const [newUser] = rows
+    return newUser;
+  }
 
-        return newUser
+  async update(user) {
+    const script = await updateUser(user.name_partner);
+    let values = [];
+    switch (user.name_partner) {
+      case "Plano de Saúde Norte Europa":
+        values = [
+            user.cpf,
+            user.name,
+            user.email,
+            user.data_admissao,            
+            user.partner_id,
+            user.name_partner,
+        ];
+        break;
+
+      case "Plano de Saúde Pampulha Intermédica":
+        values = [
+            user.cpf,
+            user.name,
+            user.endereco,
+            user.data_admissao,
+            user.partner_id,
+            user.name_partner,
+        ];
+        break;
+
+      case "Plano Odontológico Dental Sorriso":
+        values = [
+            user.cpf,
+            user.name,
+            user.peso,
+            user.altura,
+            user.partner_id,
+            user.name_partner,
+            ];
+        break;
+
+      case "Plano de Saúde Mental Mente Sã, Corpo São":
+        values = [
+            user.cpf,
+            user.horas_meditacao,
+            user.partner_id,
+            user.name_partner,
+        ];
+        break;
+
+      default:
+        values = [];
     }
+    await db.query(script, values);
+  }
 
-    async update(user) {
-        const script = await updateUser(user.partner_id)
-        let values = []
-        switch (user.partner_id) {
-            case 1 :  values = [user.name, user.data_admissao, user.email, user.partner_id, user.cpf]
-            break
-
-            case 1 :  values = [user.name, user.data_admissao, user.endereco, user.partner_id, user.cpf]
-            break
-    
-            case 3 :  values = [user.name, user.peso, user.altura, user.partner_id, user.cpf]
-            break
-    
-            case 4 :  values = [user.horas_meditacao, user.partner_id, user.cpf]
-            break
-
-            default : values = []
-        }        
-        await db.query(script, values)  
-    }
-
-    async remove(cpf) {
-        const script = `
+  async remove(user_id) {
+    const script = `
             DELETE 
             FROM users
-            WHERE cpf = $1
-        `
-        const values = [cpf]
+            WHERE user_id = $1
+        `;
+    const values = [user_id];
 
-        await db.query(script, values) 
-    }
-
+    await db.query(script, values);
+  }
 }
 
-export default new UserRepository()
+export default new UserRepository();

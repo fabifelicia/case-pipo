@@ -1,41 +1,49 @@
-import { Router } from 'express'
-import UserRepository from '../repositories/user.repository.js'
+import { Router } from "express";
+import UserRepository from "../repositories/user.repository.js";
 
+const usersRoutes = Router();
 
-const usersRoutes = Router()
+usersRoutes.get("/users", async (req, res) => {
+  const users = await UserRepository.findAllUsers();
+  res.status(200).send({ users });
+});
 
-usersRoutes.get('/users', async (req, res) => {
-  const users = await UserRepository.findAllUsers()
-  res.status(200).send({ users })
-})
+usersRoutes.get("/users/:user_id", async (req, res) => {
+  const { user_id } = req.params;
 
-usersRoutes.get('/users/:cpf', async (req, res) => {
-  const cpf = req.params.cpf
-  const user = await UserRepository.findUserById(cpf)
-  res.status(200).send(user)
-})
+  const user = await UserRepository.findUserById(user_id);
+  if (!user) return res.status(404).json({ message: "Usuário não encontrado" });
+  
+  res.status(200).send(user);
+});
 
-usersRoutes.post('/users', async (req, res) => {
-  const newUser = req.body
-  const user = await UserRepository.create(newUser)
-  res.status(201).send(user)
-})
+usersRoutes.post("/users", async (req, res) => {
+  const newUser = req.body;
+  const user = await UserRepository.create(newUser);
+  res.status(201).send(user);
+});
 
-usersRoutes.put('/users/:cpf', async (req, res) => {
-  const cpf = req.params.cpf
-  const modifiedUser = req.body
+usersRoutes.put("/users/:user_id", async (req, res) => {
+  const { user_id } = req.params;
 
-  modifiedUser.cpf = cpf
+  const user = await UserRepository.findUserById(user_id);
+  if (!user) return res.status(404).json({ message: "Usuário não encontrado" });
 
-  await UserRepository.update(modifiedUser)
+  const modifiedUser = req.body;
+  modifiedUser.user_id = user_id;
 
-  res.status(200).send({ message: 'Usuário alterado com sucesso' })
-})
+  await UserRepository.update(modifiedUser);
+  res.status(200).send({ message: "Usuário alterado com sucesso" });
+});
 
-usersRoutes.delete('/users/:cpf', async (req, res) => {
-  const cpf = req.params.cpf
-  await UserRepository.remove(cpf)
-  res.status(200).send({ message: 'Usuário removido com sucesso' })
-})
+usersRoutes.delete("/users/:user_id", async (req, res) => {
+  const { user_id } = req.params;
 
-export default usersRoutes
+  const user = await UserRepository.findUserById(user_id);
+  if (!user) return res.status(404).json({ message: "Usuário não encontrado" });
+
+  await UserRepository.remove(user_id);
+  res.status(200).send({ message: "Usuário removido com sucesso" });
+});
+
+export default usersRoutes;

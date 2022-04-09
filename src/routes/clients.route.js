@@ -30,14 +30,13 @@ clientsRoutes.put("/clients/:client_id", async (req, res) => {
 
   if (!client) {
     return res.status(404).json({ message: "Cliente não encontrado" });
-  } else {
-    const modifiedClient = req.body;
-    modifiedClient.client_id = client_id;
-
-    await ClientRepository.update(modifiedClient);
-
-    res.status(200).send({ message: "Cliente alterado com sucesso" });
   }
+  const modifiedClient = req.body;
+  modifiedClient.client_id = client_id;
+
+  await ClientRepository.update(modifiedClient);
+
+  res.status(200).send({ message: "Cliente alterado com sucesso" });
 });
 
 clientsRoutes.delete("/clients/:client_id", async (req, res) => {
@@ -46,10 +45,9 @@ clientsRoutes.delete("/clients/:client_id", async (req, res) => {
   const client = await ClientRepository.findClientById(client_id);
   if (!client) {
     return res.status(404).json({ message: "Cliente não encontrado" });
-  } else {
-    await ClientRepository.remove(client_id);
-    res.status(200).send({ message: "Cliente removido com sucesso" });
   }
+  await ClientRepository.remove(client_id);
+  res.status(200).send({ message: "Cliente removido com sucesso" });
 });
 
 export default clientsRoutes;
