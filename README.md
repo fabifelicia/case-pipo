@@ -8,11 +8,8 @@
 </h1>
 
 <p align='center'>
-
-  <img src='![npm](https://img.shields.io/npm/v/npm?color=green)' />
-
+  <img src='![npm](https://img.shields.io/npm/v/npm?color=green)'/>
   <img src="![node](https://img.shields.io/badge/node-v.16.14.2-green)"/>
-
   <img src="http://img.shields.io/badge/status-concluido-green"/>
 </p>
 
