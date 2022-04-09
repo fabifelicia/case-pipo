@@ -33,7 +33,8 @@
 
 <p align="justify">
   Projeto desenvolvido como desafio proposto pela [Pipo Saúde](https://www.piposaude.com.br/). 
-Construção de uma solução que facilite o processo de inclusão de novos funcionários na cartela de benefícios do cliente.
+
+  Construção de uma solução que facilite o processo de inclusão de novos funcionários na cartela de benefícios do cliente.
 </p>
 
 ## Funcionalidades
