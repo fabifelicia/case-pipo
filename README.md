@@ -32,14 +32,14 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  Projeto desenvolvido como desafio proposto pela [Pipo Saúde](https://www.piposaude.com.br/). 
+  Projeto desenvolvido como desafio proposto pela [Pipo Saude](https://www.piposaude.com.br/) 
 
   Construção de uma solução que facilite o processo de inclusão de novos funcionários na cartela de benefícios do cliente.
 </p>
 
 ## Funcionalidades
 ### Relacionados aos clientes
-:heavy_check_mark: Cadastro de clientes - O sistema precisa estar apto para cadastrar os clientes da empresa. Para cadastrar um cliente, debve ser informado o nome do mesmo. 
+:heavy_check_mark: Cadastro de clientes - O sistema precisa estar apto para cadastrar os clientes da empresa. Para cadastrar um cliente, deve ser informado o nome do mesmo. 
 
 :heavy_check_mark: Listar clientes cadastrados
 
@@ -55,7 +55,7 @@
 
 :heavy_check_mark: Listar parceiros cadastrados
 
-:heavy_check_mark: Buscar determinado parceiros
+:heavy_check_mark: Buscar determinado parceiro
 
 :heavy_check_mark: Alterar dados de um parceiro
 
@@ -63,10 +63,10 @@
 
 ### Relacionados aos beneficiários
 
-:heavy_check_mark: Incluir beneficiarios a determinado parceiro - O sistema precisa estar apto para cadastrar os funcionarios do cliente aos seus parceiros ofertados. Para cada parceiro, é exigido determinados dados: 
+:heavy_check_mark: Incluir beneficiarios a determinado parceiro - O sistema precisa estar apto para cadastrar os funcionarios do cliente aos seus parceiros ofertados. Para cada parceiro, são exigidos determinados dados: 
 
 1. Plano de Saúde Norte Europa: cpf, nome, data de admissão e email.
-2.  Plano de Saúde Pampulha Intermédica: cpf, nome, data de admissão e endereço.
+2. Plano de Saúde Pampulha Intermédica: cpf, nome, data de admissão e endereço.
 3. Plano Odontológico Dental Sorriso: cpf, nome, peso e altura.
 4. Plano de Saúde Mental Mente Sã, Corpo São: cpf e horas meditadas no últimos 7 dias
 
@@ -138,15 +138,15 @@ Response
 
 ## Tecnologias Utilizadas
 
-:heavy_check_mark: [Node](https://nodejs.org/en/download/)
+:heavy_check_mark: [Node v16.14.2](https://nodejs.org/en/download/)
 
-:heavy_check_mark: [Express](https://www.npmjs.com/package/express)
+:heavy_check_mark: [Express v4.17.3](https://www.npmjs.com/package/express)
 
-:heavy_check_mark: [Postgres](https://node-postgres.com/)
+:heavy_check_mark: [Postgres v8.7.3](https://node-postgres.com/)
 
 :heavy_check_mark: [ElephantSQL](https://www.elephantsql.com/)
 
-:heavy_check_mark: [dotenv](https://www.npmjs.com/package/dotenv)
+:heavy_check_mark: [dotenv v16.0.0](https://www.npmjs.com/package/dotenv)
 
 ## Como rodar a aplicação :arrow_forward:
 
@@ -181,7 +181,7 @@ npm start
 ```
 ## Desenvolvedores/Contribuintes :octocat:
 
-[<img src="https://avatars.githubusercontent.com/u/39680930?v=4" width=115><br><sub>Fabiana Barreto</sub>](https://github.com/fabifelicia) |
+[<img src="https://avatars.githubusercontent.com/u/39680930?v=4" width=115><br><sub>Fabiana Barreto</sub>](https://github.com/fabifelicia)
 
 Copyright :copyright: 2022 - Engenharia Pipo Saúde
 
